@@ -1,5 +1,8 @@
 extends Camera3D
 
+@onready var player : CharacterBody3D = get_parent()
+var offset : Vector3 = position
+
 var look_input : Vector2 = Vector2()
 @export var turn_rate : float = 200
 
@@ -10,6 +13,9 @@ var mouse_input : Vector2 = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _physics_process(delta: float) -> void:
+	position = player.position + offset
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -31,4 +37,3 @@ func _input(event: InputEvent) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		elif Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-

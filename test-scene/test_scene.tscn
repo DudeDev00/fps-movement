@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwrjb37g87w3q"]
+[gd_scene load_steps=6 format=3 uid="uid://bwrjb37g87w3q"]
 
 [ext_resource type="PackedScene" uid="uid://d0o311c4ud6cr" path="res://player/player.tscn" id="1_brww5"]
 
@@ -14,6 +14,9 @@ background_mode = 2
 sky = SubResource("Sky_jmkt4")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brww5"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="testScene" type="Node3D"]
 
@@ -33,6 +36,7 @@ use_collision = true
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, 0)
 size = Vector3(32, 1, 33)
+material = SubResource("StandardMaterial3D_brww5")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1, 0.49999997, 3)
